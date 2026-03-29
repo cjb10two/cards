@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vintage Topps Baseball Cards — 1965 &amp; 1966 Value Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #1a1a2e;
+      color: #e8e0d0;
+      min-height: 100vh;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #0f3460 100%);
+      border-bottom: 4px solid #c9a84c;
+      padding: 48px 24px 36px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: #c9a84c; }
+    .hero-sub {
+      font-size: 15px;
+      color: #9ab0c8;
+      max-width: 560px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: rgba(201,168,76,0.15);
+      border: 1px solid #c9a84c;
+      color: #c9a84c;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 5px 14px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ── Section header ── */
+    .set-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 24px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .set-year {
+      background: #c9a84c;
+      color: #1a1a2e;
+      font-family: 'Courier New', monospace;
+      font-size: 28px;
+      font-weight: bold;
+      padding: 8px 18px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .set-info h2 {
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .set-info p {
+      font-size: 13px;
+      color: #7a9bb5;
+      line-height: 1.5;
+    }
+    .set-divider {
+      height: 2px;
+      background: linear-gradient(90deg, #c9a84c, transparent);
+      max-width: 1100px;
+      margin: 0 auto 28px;
+    }
+
+    /* ── Card grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+    }
+
+    .card {
+      background: #16213e;
+      border: 1px solid #2a3f60;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .card-rank-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #0f2744;
+      padding: 8px 14px;
+      border-bottom: 1px solid #2a3f60;
+    }
+    .rank-num {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #7a9bb5;
+      letter-spacing: 1px;
+    }
+    .rank-num strong { color: #c9a84c; font-size: 15px; }
+    .card-num-tag {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: #c9a84c;
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+
+    .card-body { padding: 16px; }
+    .card-player {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .card-desc {
+      font-size: 12px;
+      color: #7a9bb5;
+      font-style: italic;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    /* Ungraded pill */
+    .ungraded-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid #2a3f60;
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+    }
+    .ungraded-label {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #7a9bb5;
+      text-transform: uppercase;
+    }
+    .ungraded-val {
+      font-size: 18px;
+      font-weight: bold;
+      color: #e8e0d0;
+    }
+
+    /* Grade table */
+    .grade-table { width: 100%; border-collapse: collapse; }
+    .grade-table thead tr {
+      background: #0f2744;
+    }
+    .grade-table th {
+      font-family: 'Courier New', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #7a9bb5;
+      padding: 6px 10px;
+      text-align: left;
+      border-bottom: 1px solid #2a3f60;
+    }
+    .grade-table td {
+      padding: 7px 10px;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(42,63,96,0.5);
+    }
+    .grade-table tr:last-child td { border-bottom: none; }
+    .grade-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+    .grade-label {
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+    }
+    .g7 { color: #7eb8d4; }
+    .g8 { color: #82d4a0; }
+    .g9 { color: #f0c060; }
+    .g10 { color: #ff8c69; }
+
+    .grade-name { font-size: 11px; color: #7a9bb5; }
+    .grade-price { font-weight: bold; text-align: right; }
+
+    /* Rookie badge */
+    .rc-badge {
+      display: inline-block;
+      background: rgba(255,107,53,0.2);
+      border: 1px solid rgba(255,107,53,0.5);
+      color: #ff8c69;
+      font-family: 'Courier New', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      padding: 2px 7px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #4a6580;
+      border-top: 1px solid #2a3f60;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #3a5070;
+      border-top: 1px solid #2a3f60;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Inventory Report · 05/07/76</div>
+  <h1>Vintage Topps<br><span>Baseball Card Value Guide</span></h1>
+  <p class="hero-sub">Top 10 most valuable cards from the 1965 &amp; 1966 Topps sets — with ungraded and PSA graded values for grades 7 through 10.</p>
+  <div class="hero-badges">
+    <span class="badge">1965 Topps · 598 Cards</span>
+    <span class="badge">1966 Topps · 598 Cards</span>
+    <span class="badge">PSA Graded Values</span>
+    <span class="badge">Updated March 2026</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     1965 TOPPS
+══════════════════════════════════════════ -->
+
+<div class="set-header">
+  <div class="set-year">1965</div>
+  <div class="set-info">
+    <h2>1965 Topps Baseball — Top 10 Most Valuable</h2>
+    <p>A beloved 598-card set featuring Hall of Fame rookies (Carlton, Morgan, Hunter, Perez) alongside legends Mantle, Mays, Aaron &amp; Koufax. One of the most prized vintage sets of the decade.</p>
+  </div>
+</div>
+<div class="set-divider"></div>
+
+<div class="grid">
+
+  <!-- 1 Mantle -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>1</strong> of 10</span>
+      <span class="card-num-tag">Card #350</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Mickey Mantle</div>
+      <div class="card-desc">New York Yankees · CF · His most iconic mid-career Topps issue; consistently the king of the set.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$200 – $500</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$1,200</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$5,250</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$24,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">N/A — None known</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 2 Carlton RC -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>2</strong> of 10</span>
+      <span class="card-num-tag">Card #477</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Steve Carlton <span class="rc-badge">Rookie</span></div>
+      <div class="card-desc">Cardinals Rookies w/ Fritz Ackley · 4× Cy Young winner; the key rookie card of the set.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$75 – $200</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$350</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$800</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$3,500</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$25,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 3 Pete Rose -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>3</strong> of 10</span>
+      <span class="card-num-tag">Card #207</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Pete Rose</div>
+      <div class="card-desc">Cincinnati Reds · 2B · His breakout year — first of 15 consecutive .300+ seasons; a key 2nd year card.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$60 – $150</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$300</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$1,750</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$8,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$40,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4 Willie Mays -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>4</strong> of 10</span>
+      <span class="card-num-tag">Card #250</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Willie Mays</div>
+      <div class="card-desc">San Francisco Giants · CF · '65 NL MVP; 52 HRs; joined the 500 HR club during this season.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$40 – $120</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$250</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$1,600</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$7,500</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">Extremely Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5 Hank Aaron -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>5</strong> of 10</span>
+      <span class="card-num-tag">Card #170</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Hank Aaron</div>
+      <div class="card-desc">Milwaukee Braves · RF · One of the sport's all-time greats; future all-time HR king.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$35 – $100</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$200</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$1,300</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$6,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">Extremely Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 6 Sandy Koufax -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>6</strong> of 10</span>
+      <span class="card-num-tag">Card #300</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Sandy Koufax</div>
+      <div class="card-desc">Los Angeles Dodgers · SP · 1965 Cy Young; perfect game; 382 Ks — one of the greatest pitching seasons ever.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$40 – $100</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$150</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$700</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$4,500</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">Extremely Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7 Joe Morgan RC -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>7</strong> of 10</span>
+      <span class="card-num-tag">Card #16</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Joe Morgan <span class="rc-badge">Rookie</span></div>
+      <div class="card-desc">Houston Astros · 2B · Future 2× MVP and backbone of Cincinnati's Big Red Machine.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$30 – $80</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$200</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$400</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$2,500</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$15,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 8 Roberto Clemente -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>8</strong> of 10</span>
+      <span class="card-num-tag">Card #160</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Roberto Clemente</div>
+      <div class="card-desc">Pittsburgh Pirates · RF · Back-to-back batting titles; one of the most beloved players in baseball history.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$30 – $90</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$175</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$900</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$5,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">Extremely Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 9 Catfish Hunter RC -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>9</strong> of 10</span>
+      <span class="card-num-tag">Card #526</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Catfish Hunter <span class="rc-badge">Rookie</span></div>
+      <div class="card-desc">A's Rookie Stars (w/ Lachemann, Odom, Lockwood). Hall of Fame ace; key high-number short print.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$30 – $75</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$150</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$500</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$3,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$18,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 10 Tony Perez RC -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>10</strong> of 10</span>
+      <span class="card-num-tag">Card #581</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Tony Perez <span class="rc-badge">Rookie</span></div>
+      <div class="card-desc">Cincinnati Reds · 1B · Future Hall of Famer; short-printed high-number series card.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$20 – $60</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$100</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$350</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$2,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$12,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /1965 grid -->
+
+
+<!-- ══════════════════════════════════════════
+     1966 TOPPS
+══════════════════════════════════════════ -->
+
+<div class="set-header">
+  <div class="set-year">1966</div>
+  <div class="set-info">
+    <h2>1966 Topps Baseball — Top 10 Most Valuable</h2>
+    <p>A 598-card set known for colorful headshots and up-close portraits. Features three Hall of Fame rookies (Palmer, Jenkins, Sutton) plus final Topps issues for Sandy Koufax.</p>
+  </div>
+</div>
+<div class="set-divider"></div>
+
+<div class="grid">
+
+  <!-- 1 Willie Mays #1 -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>1</strong> of 10</span>
+      <span class="card-num-tag">Card #1</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Willie Mays</div>
+      <div class="card-desc">San Francisco Giants · CF · The coveted #1 card of the set — extremely difficult to find in top grade due to handling wear.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$60 – $175</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$300</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$3,250</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$18,000+</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">N/A — None known</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 2 Mickey Mantle -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>2</strong> of 10</span>
+      <span class="card-num-tag">Card #50</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Mickey Mantle</div>
+      <div class="card-desc">New York Yankees · CF · One of his final Topps cards. The most graded card in the set (16,800+ PSA copies).</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$150 – $400</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$900</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$3,000</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$20,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">N/A — None known</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 3 Hank Aaron #500 -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>3</strong> of 10</span>
+      <span class="card-num-tag">Card #500</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Hank Aaron</div>
+      <div class="card-desc">Atlanta Braves · RF · NL-leading 44 HRs and 127 RBIs in 1966; high-number card adds scarcity premium.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$40 – $110</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$200</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$1,400</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$8,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">Extremely Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4 Roberto Clemente #300 -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>4</strong> of 10</span>
+      <span class="card-num-tag">Card #300</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Roberto Clemente</div>
+      <div class="card-desc">Pittsburgh Pirates · RF · Back-to-back batting champ; '66 NL MVP runner-up. High-number scarcity.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$35 – $100</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$175</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$1,250</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$7,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">Extremely Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5 Sandy Koufax #100 -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>5</strong> of 10</span>
+      <span class="card-num-tag">Card #100</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Sandy Koufax</div>
+      <div class="card-desc">Los Angeles Dodgers · SP · His final mainstream Topps card — retired after the '66 season due to arthritis.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$30 – $85</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$125</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$800</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$5,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">Extremely Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 6 Pete Rose #30 -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>6</strong> of 10</span>
+      <span class="card-num-tag">Card #30</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Pete Rose</div>
+      <div class="card-desc">Cincinnati Reds · 2B · 2nd most graded card in the set; perennially popular vintage staple.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$25 – $70</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$100</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$650</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$4,000</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$25,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7 Jim Palmer RC -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>7</strong> of 10</span>
+      <span class="card-num-tag">Card #126</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Jim Palmer <span class="rc-badge">Rookie</span></div>
+      <div class="card-desc">Baltimore Orioles · SP · Hall of Famer; 3× Cy Young winner; one of three HOF rookies in the '66 set.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$20 – $60</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$95</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$400</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$2,500</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$18,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 8 NL Batting Leaders -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>8</strong> of 10</span>
+      <span class="card-num-tag">Card #215</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">NL Batting Leaders</div>
+      <div class="card-desc">Clemente / Mays / Aaron on one card — three Hall of Famers sharing cardboard; a uniquely powerful multi-player issue.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$20 – $55</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$75</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$400</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$2,500</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">Extremely Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 9 Fergie Jenkins RC -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>9</strong> of 10</span>
+      <span class="card-num-tag">Card #254</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Fergie Jenkins <span class="rc-badge">Rookie</span></div>
+      <div class="card-desc">Philadelphia Phillies · SP · Hall of Famer; 1971 Cy Young; 284 career wins. Often overlooked HOF rookie.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$15 – $40</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$60</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$275</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$1,500</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$10,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 10 Don Sutton RC -->
+  <div class="card">
+    <div class="card-rank-bar">
+      <span class="rank-num">#<strong>10</strong> of 10</span>
+      <span class="card-num-tag">Card #288</span>
+    </div>
+    <div class="card-body">
+      <div class="card-player">Don Sutton <span class="rc-badge">Rookie</span></div>
+      <div class="card-desc">Los Angeles Dodgers · SP · Hall of Famer; 324 career wins; third of three HOF rookies in the '66 set.</div>
+      <div class="ungraded-row">
+        <span class="ungraded-label">Ungraded (Raw)</span>
+        <span class="ungraded-val">$12 – $35</span>
+      </div>
+      <table class="grade-table">
+        <thead><tr><th>Grade</th><th>Condition</th><th class="grade-price">Est. Value</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade-label g7">PSA 7</span></td><td class="grade-name">Near Mint</td><td class="grade-price">$50</td></tr>
+          <tr><td><span class="grade-label g8">PSA 8</span></td><td class="grade-name">NM-MT</td><td class="grade-price">$200</td></tr>
+          <tr><td><span class="grade-label g9">PSA 9</span></td><td class="grade-name">Mint</td><td class="grade-price">$1,200</td></tr>
+          <tr><td><span class="grade-label g10">PSA 10</span></td><td class="grade-name">Gem Mint</td><td class="grade-price">$8,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /1966 grid -->
+
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> All values are estimates based on recent PSA auction results, SportsCardsPro, and dealer pricing data as of early 2026. Ungraded (raw) values assume average-condition cards. Actual prices vary based on centering, surface quality, and market timing. Always verify current values via eBay sold listings or PSA's price guide before buying or selling. PSA 10 examples for most 1960s cards are either nonexistent or extremely rare.
+</div>
+
+<footer>
+  Vintage Topps Baseball Card Value Guide · 1965 &amp; 1966 Sets · Compiled March 2026
+</footer>
+
+</body>
+</html>
